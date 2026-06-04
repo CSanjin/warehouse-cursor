@@ -1,0 +1,164 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=35896, tid=0x00000000000086b0
+#
+# JRE version:  (8.0_492-b09) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.492-b09 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000012b2e7e4800):  JavaThread "Unknown thread" [_thread_in_vm, id=34480, stack(0x000000293d100000,0x000000293d200000)]
+
+Stack: [0x000000293d100000,0x000000293d200000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000012b2e7e4800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=34480, stack(0x000000293d100000,0x000000293d200000)]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000006c3200000, size: 4046 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 75776K, used 1300K [0x000000076bb80000, 0x0000000771000000, 0x00000007c0000000)
+  eden space 65024K, 2% used [0x000000076bb80000,0x000000076bcc51f8,0x000000076fb00000)
+  from space 10752K, 0% used [0x0000000770580000,0x0000000770580000,0x0000000771000000)
+  to   space 10752K, 0% used [0x000000076fb00000,0x000000076fb00000,0x0000000770580000)
+ ParOldGen       total 173568K, used 0K [0x00000006c3200000, 0x00000006cdb80000, 0x000000076bb80000)
+  object space 173568K, 0% used [0x00000006c3200000,0x00000006c3200000,0x00000006cdb80000)
+ Metaspace       used 779K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 76K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000012b3f7b0000,0x0000012b3ffa0000] byte_map_base: 0x0000012b3c197000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000068882900
+ Begin Bits: [0x0000012b404f0000, 0x0000012b44428000)
+ End Bits:   [0x0000012b44428000, 0x0000012b48360000)
+
+Polling page: 0x0000012b2eb30000
+
+CodeCache: size=245760Kb used=328Kb max_used=328Kb free=245431Kb
+ bounds [0x0000012b303f0000, 0x0000012b30660000, 0x0000012b3f3f0000]
+ total_blobs=57 nmethods=0 adapters=38
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 1.033 loading class java/lang/Short
+Event: 1.033 loading class java/lang/Short done
+Event: 1.033 loading class java/lang/Integer
+Event: 1.033 loading class java/lang/Integer done
+Event: 1.033 loading class java/lang/Long
+Event: 1.033 loading class java/lang/Long done
+Event: 1.034 loading class java/lang/NullPointerException
+Event: 1.034 loading class java/lang/NullPointerException done
+Event: 1.034 loading class java/lang/ArithmeticException
+Event: 1.034 loading class java/lang/ArithmeticException done
+
+
+Dynamic libraries:
+0x00007ff72f600000 - 0x00007ff72f648000 	C:\Users\Lenovo\.jdks\corretto-1.8.0_492\bin\java.exe
+0x00007ffebfb00000 - 0x00007ffebfd67000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffebe490000 - 0x00007ffebe559000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffebcb60000 - 0x00007ffebcf57000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffebe560000 - 0x00007ffebe616000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffebe750000 - 0x00007ffebe7f9000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffebf1d0000 - 0x00007ffebf277000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffebf930000 - 0x00007ffebfa48000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffebf750000 - 0x00007ffebf916000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffebcb30000 - 0x00007ffebcb57000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffebf340000 - 0x00007ffebf36b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffebc970000 - 0x00007ffebca9c000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffebc530000 - 0x00007ffebc5d3000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffebc760000 - 0x00007ffebc8ab000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffe96e30000 - 0x00007ffe970c2000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.8457_none_3e0b2faee331e92d\COMCTL32.dll
+0x00007ffebf090000 - 0x00007ffebf0c2000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffeb7740000 - 0x00007ffeb7755000 	C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\bin\vcruntime140.dll
+0x00007ffe68e30000 - 0x00007ffe68ecb000 	C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\bin\msvcp140.dll
+0x00000000680a0000 - 0x00000000688fc000 	C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\bin\server\jvm.dll
+0x00007ffebe2c0000 - 0x00007ffebe2c8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffeb2e80000 - 0x00007ffeb2e8b000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe924d0000 - 0x00007ffe924da000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffea3f60000 - 0x00007ffea3f96000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffebe6c0000 - 0x00007ffebe740000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffebb2c0000 - 0x00007ffebb2db000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffeb7730000 - 0x00007ffeb7740000 	C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\bin\verify.dll
+0x00007ffe8bf60000 - 0x00007ffe8bf8b000 	C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\bin\java.dll
+0x00007ffe77310000 - 0x00007ffe77343000 	C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\bin\instrument.dll
+0x00007ffeb7710000 - 0x00007ffeb7728000 	C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -XX:TieredStopAtLevel=1 -Xverify:none -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:D:\development tool\IDEAL\IntelliJ IDEA 2025.2.1\lib\idea_rt.jar=55429 -Dfile.encoding=UTF-8 
+java_command: com.warehouse.stock.StockApplication
+java_class_path (initial): C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\charsets.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\access-bridge-64.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\cldrdata.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\dnsns.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\jaccess.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\jfxrt.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\localedata.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\nashorn.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\sunec.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\sunjce_provider.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\sunmscapi.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\sunpkcs11.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\ext\zipfs.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\jce.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\jfr.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\jfxswt.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\jsse.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\management-agent.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\resources.jar;C:\Users\Lenovo\.jdks\corretto-1.8.0_492\jre\lib\rt.jar;E:\code\Spring cloud\warehouse-cursor\warehouse-stock\target\classes;E:\code\Spring cloud\warehouse-cursor\warehouse-common\target\classes;C:\develop\maven\repository\cn\hutool\hutool-all\5.8.22\hutool-all-5.8.22.jar;C:\develop\maven\repository\com\fasterxml\jackson\core\jackson-databind\2.13.5\jackson-databind-2.13.5.jar;C:\develop\maven\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.5\jackson-annotations-2.13.5.jar;C:\develop\maven\repository\com\fasterxml\jackson\core\jackson-core\2.13.5\jackson-core-2.13.5.jar;C:\develop\maven\repository\org\springframework\boot\spring-boot-starter-web\2.7.15\spring-boot-starter-web-2.7.15.jar;C:\develop\maven\repository\org\spri
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\develop\java\jdk-22.0.1
+PATH=E:\virtual machine\bin\;C:\develop\java\jdk-22.0.1\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\develop\maven\apache-maven-3.9.11\bin\;D:\python\Scripts;C:\develop\Vue.js;D:\微信开发工具\微信web开发者工具\dll;C:\develop\MYSQL\mysql-8.0.32-winx64;bin;C:\develop\go\bin;E:\Program Files (x86)\git\Git\cmd;C:\develop\MYSQL\mysql-8.0.32-winx64\bin;E:\code\server\rocketmq-all-5.0.0-bin-release\bin;E:\cursor\cursor\resources\app\bin;C:\Users\Lenovo\AppData\Local\Microsoft\WindowsApps;C:\ProgramData\Microsoft\Windows\Start Menu\Programs;C:\develop\driver;D:\python\PyCharm 2025.2.1\bin;D:\IDEAL\IntelliJ IDEA 2025.2.1\bin;C:\Users\Lenovo\AppData\Roaming\npm;D:\vscode\Microsoft VS Code\bin;C:\Users\Lenovo\go\bin
+USERNAME=Lenovo
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 11 , 64 bit Build 26100 (10.0.26100.8328)
+
+CPU:total 20 (initial active 20) (10 cores per cpu, 2 threads per core) family 6 model 186 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16564280k(1498172k free), swap 29147192k(5240k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.492-b09) for windows-amd64 JRE (1.8.0_492-b09), built on May  6 2026 03:38:59 by "Administrator" with MS VC++ 15.9 (VS2017)
+
+time: Thu Jun  4 10:23:33 2026
+timezone: Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+elapsed time: 2.053461 seconds (0d 0h 0m 2s)
+

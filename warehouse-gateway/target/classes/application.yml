@@ -1,0 +1,54 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: warehouse-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: warehouse-user
+          uri: lb://warehouse-user
+          predicates:
+            - Path=/api/user/**
+        - id: warehouse-goods
+          uri: lb://warehouse-goods
+          predicates:
+            - Path=/api/goods/**
+        - id: warehouse-base
+          uri: lb://warehouse-base
+          predicates:
+            - Path=/api/base/**
+        - id: warehouse-stock
+          uri: lb://warehouse-stock
+          predicates:
+            - Path=/api/stock/**
+        - id: warehouse-inout
+          uri: lb://warehouse-inout
+          predicates:
+            - Path=/api/inout/**
+        - id: warehouse-check
+          uri: lb://warehouse-check
+          predicates:
+            - Path=/api/check/**
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8858
+        port: 8719
+      eager: true
+      scg:
+        fallback:
+          mode: response
+          response-status: 429
+          response-body: '{"code":429,"message":"请求过于频繁，请稍后再试","data":null}'
+
+logging:
+  level:
+    com.warehouse: debug

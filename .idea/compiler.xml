@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="warehouse-user" />
+        <module name="warehouse-stock" />
+        <module name="warehouse-base" />
+        <module name="warehouse-check" />
+        <module name="warehouse-goods" />
+        <module name="warehouse-common" />
+        <module name="warehouse-gateway" />
+        <module name="warehouse-inout" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

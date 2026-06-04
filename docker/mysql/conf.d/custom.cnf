@@ -1,0 +1,14 @@
+[mysqld]
+# 仅允许容器网络内访问，配合 compose 不映射 3306 到宿主机
+bind-address = 0.0.0.0
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+default-time-zone = '+8:00'
+# 开启 binlog 便于演示数据恢复（课程：数据安全）
+log-bin = mysql-bin
+expire_logs_days = 7
+max_binlog_size = 100M
+skip-name-resolve
+
+[client]
+default-character-set = utf8mb4

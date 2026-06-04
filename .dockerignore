@@ -1,0 +1,10 @@
+**/target/
+**/node_modules/
+**/.idea/
+**/.git/
+**/*.iml
+warehouse-web/dist/
+docker/data/
+.env
+*.log
+hs_err_pid*.log

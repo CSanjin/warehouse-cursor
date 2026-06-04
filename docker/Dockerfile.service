@@ -1,0 +1,49 @@
+# 通用 Spring Boot 微服务镜像（多阶段构建，减小镜像体积）
+ARG MODULE=warehouse-gateway
+FROM maven:3.9-eclipse-temurin-8 AS builder
+
+ARG MODULE
+WORKDIR /build
+
+COPY pom.xml .
+COPY warehouse-common/pom.xml warehouse-common/
+COPY warehouse-gateway/pom.xml warehouse-gateway/
+COPY warehouse-user/pom.xml warehouse-user/
+COPY warehouse-goods/pom.xml warehouse-goods/
+COPY warehouse-base/pom.xml warehouse-base/
+COPY warehouse-stock/pom.xml warehouse-stock/
+COPY warehouse-inout/pom.xml warehouse-inout/
+COPY warehouse-check/pom.xml warehouse-check/
+
+RUN mvn -B dependency:go-offline -pl ${MODULE} -am || true
+
+COPY warehouse-common warehouse-common
+COPY warehouse-gateway warehouse-gateway
+COPY warehouse-user warehouse-user
+COPY warehouse-goods warehouse-goods
+COPY warehouse-base warehouse-base
+COPY warehouse-stock warehouse-stock
+COPY warehouse-inout warehouse-inout
+COPY warehouse-check warehouse-check
+
+RUN mvn -B package -DskipTests -pl ${MODULE} -am
+
+FROM eclipse-temurin:8-jre-jammy
+
+ARG MODULE
+LABEL service="${MODULE}"
+
+RUN groupadd -r warehouse && useradd -r -g warehouse warehouse
+WORKDIR /app
+
+COPY --from=builder /build/${MODULE}/target/*.jar /app/app.jar
+RUN chown -R warehouse:warehouse /app
+
+USER warehouse
+
+ENV JAVA_OPTS="-Xms256m -Xmx512m -Djava.security.egd=file:/dev/./urandom"
+ENV TZ=Asia/Shanghai
+
+EXPOSE 8080
+
+ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app/app.jar"]
